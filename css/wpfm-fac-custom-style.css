@@ -1,0 +1,170 @@
+/*------------------------------  Woo FAQ ASK QUESTION FORM---------------------------------*/
+
+section.bwl-fca-ques-form-container{
+    margin-top: 11px;
+    clear: both;
+    display: block;
+    text-align: left;
+}
+
+.bwl-fca-ques-form-success-box{
+    background: #8ad088;
+    color: #FFFFFF;
+}
+
+.bwl-fca-ques-form-wait-box{
+    background: #ffffc1;
+    color: #000000;
+}
+
+.bwl-fca-ques-form-error-box{
+    background: #e63f37;
+    color: #FFFFFF;
+}
+
+.bwl-fca-ques-form-container h2{
+    font-size: 18px;
+    margin: 11px 0px;
+    padding: 0;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 5px;
+}
+
+.bwl-fca-ques-form-container .bwl-fca-message-box{
+    width: 100%;
+    border:1px solid #EEEEEE;
+    line-height: 32px;
+    padding: 6px 2px 6px 6px;
+    display: none;
+    margin-bottom: 11px;
+}
+
+.bwl-fca-ques-form-container form input[type=text]
+{
+    width: 100%;
+    margin-bottom: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid lightgray;
+    height: 48px;
+    line-height: 24px;
+}
+
+.bwl-fca-ques-form-container form select
+{    
+    margin-bottom: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid lightgray;
+    height: 32px;
+    line-height: 24px;
+    padding: 6px;
+}
+
+
+.bwl-fca-ques-form-container form p label{
+    display: block;
+    clear: both;
+    margin: 12px 0;
+}
+
+
+.bwl-fca-ques-form-container form input[type=submit]{
+    
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid lightgray;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 12px;
+    margin: 12px 0;
+}
+
+.bwl-fca-ques-form-container form input.bkb_ques_disabled_field,
+.bwl-fca-ques-form-container form select.bkb_ques_disabled_field,
+.bwl-fca-ques-form-container form input[type=submit].bkb_ques_disabled_field{
+    background: #EEEEEE;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid lightgray;
+    height: 32px;
+    line-height: 24px;
+}
+
+.bwl-fca-ques-form-container form input.captcha, 
+.bwl-fca-ques-form-container form input.sum {
+    display: inline;
+    text-align: center;
+    width: 40px;
+}
+
+.bwl-fca-ques-form-container form span#spambot {
+    font-size: 11px;
+}
+
+p.bwl_fca_question_submit_container{
+    text-align: left;
+}
+
+
+/*------------------------------ Login Box Style ---------------------------------*/
+
+#wpfm_login_form{
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+#wpfm_login_form label{
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+#wpfm_login_form input[type=text] ,
+#wpfm_login_form input[type=password] {
+    width: 100%;
+    border: 1px solid #EEE;
+    height: 48px;
+    line-height: 48px;
+    background: #FFF;
+    padding: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+#wpfm_login_form input[type=text]:focus,
+#wpfm_login_form input[type=password]:focus {
+    background: #fafafa;
+}
+
+
+p.login-remember{
+    margin-top: 24px;
+}
+
+.wpfm_login_required_msg{
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEE;
+}
+
+#wpfm_login_form input[type=submit]{
+    width: 150px;
+    height: 48px;
+    border: 1px solid #EEE;
+    font-size: 14px;
+    font-weight: bold;
+    background: #FFF;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+#wpfm_login_form input[type=submit]:hover{
+    background: #fafafa;
+}
