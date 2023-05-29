@@ -6,7 +6,7 @@
   Description: Finding a nice way to collect questions from user end for your WooCommerce powered site? FAQ collector addon provide you that way to get user questions directly from product page and make a great list of FAQ for your current and upcoming users.
   Author: Md Mahbub Alam Khan
   Version: 1.1.1
-  WP Requires at least: 3.5+
+  WP Requires at least: 6.0+
   Author URI: https://www.bluewindlab.net
   Text Domain: bwl-wpfmfc
  */
