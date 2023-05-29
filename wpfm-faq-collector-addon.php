@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name: FAQ Collector - Addon For WooCommerce Product Faq Manager
+  Plugin Name: FAQ Collector - WooCommerce Product Faq Manager Addon
   Plugin URI: https://www.bluewindlab.net
   Description: Finding a nice way to collect questions from user end for your WooCommerce powered site? FAQ collector addon provide you that way to get user questions directly from product page and make a great list of FAQ for your current and upcoming users.
   Author: Md Mahbub Alam Khan

@@ -1,0 +1,8 @@
+node_modules
+vendor
+tests
+package-lock.json
+composer.lock
+*.map
+*.hot-update.js
+*.hot-update.json
