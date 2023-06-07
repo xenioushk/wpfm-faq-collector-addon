@@ -28,7 +28,7 @@ staging:
 production:
   stage: production
   only:
-    - main
+    - production
   tags:
     - ci
     - devops
