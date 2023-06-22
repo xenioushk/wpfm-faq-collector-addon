@@ -1,0 +1,184 @@
+.update-nag {
+  display: none;
+}
+#instructions {
+  max-width: 670px;
+}
+h3.title {
+  margin: 30px 0 0 0;
+  padding: 30px 0 0 0;
+  border-top: 1px solid #ddd;
+}
+.new_version_box {
+  background: #d54e21;
+  padding: 0 5px;
+  font-weight: bold;
+  color: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.plugin-info-wrap {
+  font-family: "verdana", sans-serif, serif;
+}
+
+.plugin-info-wrap ul,
+.plugin-info-wrap li,
+.plugin-info-wrap p {
+  font-size: 13px;
+}
+.plugin-info-wrap h2 {
+  margin: 0;
+  padding: 0;
+  text-align: left !important;
+}
+
+.developer-info {
+  font-size: 16px;
+}
+
+.welcome-hr {
+  border: 0px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.atfc-filter-wrapper {
+  font-family: "verdana", sans-serif, serif;
+}
+
+.atfc-filter-wrapper ul,
+.atfc-filter-wrapper li,
+.atfc-filter-wrapper p {
+  font-size: 13px;
+}
+.atfc-filter-wrapper h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.developer-info {
+  font-size: 16px;
+}
+
+.welcome-hr {
+  border: 0px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.dn {
+  display: none;
+}
+
+input[type="button"] {
+  cursor: pointer;
+}
+
+table.dataTable {
+  width: 100% !important;
+}
+
+table#vote_details_info {
+  width: 100%;
+}
+
+a#callback-lists-table_next,
+a#callback-lists-table_previous {
+  padding: 6px;
+  display: inline-block;
+  cursor: pointer;
+}
+table#vote_details_info tr.vote_details_row:first-child {
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+table#vote_details_info tr.vote_details_row td:first-child {
+  width: 40%;
+  padding: 3px;
+  text-align: left;
+}
+
+table#vote_details_info tr.vote_details_row td:nth-child(2),
+table#vote_details_info tr.vote_details_row td:nth-child(3),
+table#vote_details_info tr.vote_details_row td:nth-child(4) {
+  width: 20%;
+  padding: 12px;
+  text-align: center;
+}
+
+.ctrl-section {
+  font-size: 12px;
+  background: #fff;
+  margin: 24px 0;
+  display: block;
+  padding: 12px 24px;
+}
+
+.ctrl-section input[type="text"],
+select {
+  height: 26px;
+  font-size: 11px;
+}
+
+div.dataTables_wrapper {
+  background: #fff !important;
+  padding: 24px !important;
+}
+
+#mv_atfc_go,
+#atfc_reset_report,
+#atfc_download_report {
+  margin-top: 12px;
+}
+
+.report-break {
+  margin: 12px 0;
+  display: block;
+}
+
+.ui-dialog .ui-dialog-titlebar-close span {
+  margin: -8px !important;
+}
+
+#id-form {
+  text-align: left;
+  font-weight: normal;
+}
+
+#id-form tr {
+  padding: 3px 5px;
+}
+
+.input-box-small {
+  width: 50px;
+}
+
+.action-msg-box {
+  margin-top: 24px;
+  background: #00a0d2;
+  font-weight: normal;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 0px 6px 6px;
+}
+
+span#atfc-admin-loader {
+  font-size: 11px;
+  margin-left: 5px;
+  color: #ffffff;
+  background: #00a0d2;
+  padding: 0 6px;
+  vertical-align: middle;
+  height: 20px;
+  line-height: 20px;
+}
+
+span.dn {
+  display: none;
+}
+
+span.dib {
+  display: inline-block;
+}
