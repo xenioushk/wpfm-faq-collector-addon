@@ -5,7 +5,7 @@
   Plugin URI: https://bluewindlab.net
   Description:Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
   Author: Md Mahbub Alam Khan
-  Version: 1.1.2
+  Version: 1.1.3
   WP Requires at least: 6.0+
   Author URI: https://bluewindlab.net
   Text Domain: bwl-wpfmfc
@@ -14,14 +14,16 @@
 if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
-Class BWL_Wpfm_Fc_Addon {
+class BWL_Wpfm_Fc_Addon
+{
 
-    function __construct() {
+    function __construct()
+    {
 
         /* ------------------------------ PLUGIN COMMON CONSTANTS --------------------------------- */
 
         define("BWL_WPFM_FCA_DIR", plugins_url() . '/wpfm-faq-collector-addon/');
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.2');
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.3');
 
         // Call Immediatly Initialized.      
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-check-compatibility.php';
@@ -38,19 +40,22 @@ Class BWL_Wpfm_Fc_Addon {
         }
     }
 
-    function wpfm_fca_requirement_admin_notices() {
+    function wpfm_fca_requirement_admin_notices()
+    {
         echo '<div class="updated"><p>You need to download & install both '
-        . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b> && '
-        . '<b><a href="https://1.envato.market/wpfm-wp" target="_blank">WooCommerce Product Faq Manager Plugin</a></b> '
-        . 'to use <b>FAQ Collector Addon</b> ! </p></div>';
+            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b> && '
+            . '<b><a href="https://1.envato.market/wpfm-wp" target="_blank">WooCommerce Product Faq Manager Plugin</a></b> '
+            . 'to use <b>FAQ Collector Addon</b> ! </p></div>';
     }
 
-    function wpfm_fca_compatibily_notice() {
+    function wpfm_fca_compatibily_notice()
+    {
 
         add_action('admin_notices', array($this, 'wpfm_fca_requirement_admin_notices'));
     }
 
-    function included_files() {
+    function included_files()
+    {
 
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-helpers.php';
         include_once dirname(__FILE__) . '/shortcode/wpfm-fca-shortcodes.php';
@@ -68,31 +73,33 @@ Class BWL_Wpfm_Fc_Addon {
         }
     }
 
-    function enqueue_plugin_scripts() {
+    function enqueue_plugin_scripts()
+    {
 
         if (!is_admin()) {
 
             $bwpfm_data = get_option('bwpfm_options');
 
-            wp_register_style('bwl-wpfm-fca-styles', plugins_url('css/wpfm-fac-custom-style.css', __FILE__), array(), BWL_WPFM_FCA_PLUGIN_VERSION);
-            wp_register_script('bkb-wpfm-fac-custom-scripts', plugins_url('js/wpfm-fac-custom-scripts.js', __FILE__), array('jquery'), BWL_WPFM_FCA_PLUGIN_VERSION, FALSE);
+            wp_enqueue_style('wpfm-fca-frontend', plugins_url('assets/styles/frontend.css', __FILE__), [], BWL_WPFM_FCA_PLUGIN_VERSION);
+            wp_register_script('wpfm-fac-frontend', plugins_url('assets/scripts/frontend.js', __FILE__), array('jquery'), BWL_WPFM_FCA_PLUGIN_VERSION, FALSE);
 
             //@Load FAQ Collector Form Stylesheet.
-            wp_enqueue_style('bwl-wpfm-fca-styles');
+            // wp_enqueue_style('bwl-wpfm-fca-styles');
 
             //@Load RTL Stylesheet.
             if (is_rtl()) {
-                wp_enqueue_style('bwl-wpfm-fac-rtl-styles', plugins_url('css/wpfm-fac-rtl.css', __FILE__));
+                wp_enqueue_style('wpfm-fac-frontend-rtl', plugins_url('assets/styles/frontend_rtl.css', __FILE__));
             }
         }
     }
 
-    function bwpfm_add_custom_product_tab($tabs) {
+    function bwpfm_add_custom_product_tab($tabs)
+    {
 
-        if(! is_product()) {
-           return '';
+        if (!is_product()) {
+            return '';
         }
-        
+
         global $product;
 
         $bwpfm_data = get_option('bwpfm_options');
@@ -112,7 +119,7 @@ Class BWL_Wpfm_Fc_Addon {
         }
 
 
-        $wpfm_fc_display_fca_status = get_post_meta($product->get_id(), 'wpfm_fc_display_faq', true); 
+        $wpfm_fc_display_fca_status = get_post_meta($product->get_id(), 'wpfm_fc_display_faq', true);
 
         if (isset($wpfm_fc_display_fca_status) && $wpfm_fc_display_fca_status == 1) {
 
@@ -121,9 +128,9 @@ Class BWL_Wpfm_Fc_Addon {
 
         // Added in version 1.0.6
 
-        $fca_container_extra_class = ( isset($bwpfm_data['fca_container_extra_class']) && trim($bwpfm_data['fca_container_extra_class']) != "" ) ? $bwpfm_data['fca_container_extra_class'] : '';
-        $title_min_length = ( isset($bwpfm_data['bwpfm_title_min_length']) && trim($bwpfm_data['bwpfm_title_min_length']) != "" && is_numeric($bwpfm_data['bwpfm_title_min_length']) ) ? $bwpfm_data['bwpfm_title_min_length'] : 3;
-        $title_max_length = ( isset($bwpfm_data['bwpfm_title_max_length']) && trim($bwpfm_data['bwpfm_title_max_length']) != "" && is_numeric($bwpfm_data['bwpfm_title_max_length']) ) ? $bwpfm_data['bwpfm_title_max_length'] : 100;
+        $fca_container_extra_class = (isset($bwpfm_data['fca_container_extra_class']) && trim($bwpfm_data['fca_container_extra_class']) != "") ? $bwpfm_data['fca_container_extra_class'] : '';
+        $title_min_length = (isset($bwpfm_data['bwpfm_title_min_length']) && trim($bwpfm_data['bwpfm_title_min_length']) != "" && is_numeric($bwpfm_data['bwpfm_title_min_length'])) ? $bwpfm_data['bwpfm_title_min_length'] : 3;
+        $title_max_length = (isset($bwpfm_data['bwpfm_title_max_length']) && trim($bwpfm_data['bwpfm_title_max_length']) != "" && is_numeric($bwpfm_data['bwpfm_title_max_length'])) ? $bwpfm_data['bwpfm_title_max_length'] : 100;
 
 
         $tabs['bwpfm_fca_tab'] = array(
@@ -136,18 +143,19 @@ Class BWL_Wpfm_Fc_Addon {
         return $tabs;
     }
 
-    function bwpfm_fca_tab_panel_content($key, $tab) {
+    function bwpfm_fca_tab_panel_content($key, $tab)
+    {
 
         // allow shortcodes to function
         $content = str_replace(']]>', ']]&gt;', $tab['content']);
         echo apply_filters('woocommerce_custom_fca_content', $content, $tab);
     }
-
 }
 
 /* ------------------------------ Initialization --------------------------------- */
 
-function init_wpfm_fc_addon() {
+function init_wpfm_fc_addon()
+{
     new BWL_Wpfm_Fc_Addon();
 }
 
