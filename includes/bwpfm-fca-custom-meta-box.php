@@ -2,7 +2,8 @@
 
 //@Description:Custom Meta Box Display In Product Details Page.
 
-function bwpfm_fc_custom_meta_init() {
+function bwpfm_fc_custom_meta_init()
+{
 
     global $post;
 
@@ -12,8 +13,7 @@ function bwpfm_fc_custom_meta_init() {
 
     if (isset($bwpfm_data['bwpfm_admin_email']) && $bwpfm_data['bwpfm_admin_email'] != "") {
 
-        $bwpfm_fc_user_email = sanitize_email( $bwpfm_data['bwpfm_admin_email'] );
-        
+        $bwpfm_fc_user_email = sanitize_email($bwpfm_data['bwpfm_admin_email']);
     }
 
     $cmb_bwpfm_fca_fields = array(
@@ -83,7 +83,8 @@ function bwpfm_fc_custom_meta_init() {
         'post_type' => 'product', // define post type. go to register_post_type method to view post_type name.        
         'context' => 'side',
         'priority' => 'low',
-        'fields' => array('wpfm_fc_display_faq' => array(
+        'fields' => array(
+            'wpfm_fc_display_faq' => array(
                 'title' => esc_html__('Hide Ask A Question Tab? ', 'bwl-wpfmfc'),
                 'id' => 'wpfm_fc_display_faq',
                 'name' => 'wpfm_fc_display_faq',
@@ -110,7 +111,8 @@ add_action('admin_init', 'bwpfm_fc_custom_meta_init');
 
 /* ------------------------------ After Save Post We are going to send email to user --------------------------------- */
 
-function bwpfm_fc_updated_send_email($post_id) {
+function bwpfm_fc_updated_send_email($post_id)
+{
 
     // If this is just a revision, don't send the email.
 
@@ -118,18 +120,20 @@ function bwpfm_fc_updated_send_email($post_id) {
         return;
 
 
-    if (get_post_status($post_id) == 'publish' && get_post_type($post_id) == 'bwl-woo-faq-manager' &&
-            isset($_POST['bwpfm_fc_email_send_status']) && $_POST['bwpfm_fc_email_send_status'] == 1 &&
-            isset($_POST['bwpfm_fc_user_email']) && $_POST['bwpfm_fc_user_email'] != get_bloginfo('admin_email')) {
+    if (
+        get_post_status($post_id) == 'publish' && get_post_type($post_id) == 'bwl-woo-faq-manager' &&
+        isset($_POST['bwpfm_fc_email_send_status']) && $_POST['bwpfm_fc_email_send_status'] == 1 &&
+        isset($_POST['bwpfm_fc_user_email']) && $_POST['bwpfm_fc_user_email'] != get_bloginfo('admin_email')
+    ) {
 
-        $bwpfm_fc_user_email = sanitize_email( $_POST['bwpfm_fc_user_email'] );
+        $bwpfm_fc_user_email = sanitize_email($_POST['bwpfm_fc_user_email']);
 
         // Add sender name to reply message.
         //@Since: Version 1.0.2
         $bwpfm_fc_sender_name = "";
 
         if (isset($_POST['bwpfm_fc_sender_name']) && $_POST['bwpfm_fc_sender_name'] != "") {
-            $bwpfm_fc_sender_name = ' ' . esc_attr ( $_POST['bwpfm_fc_sender_name'] );
+            $bwpfm_fc_sender_name = ' ' . esc_attr($_POST['bwpfm_fc_sender_name']);
         }
 
         // Get Product info by product ID.
@@ -151,7 +155,7 @@ function bwpfm_fc_updated_send_email($post_id) {
         $faq_content = stripslashes($_POST['content']);
 
         $subject = esc_html__('Product FAQ has been updated!', 'bwl-wpfmfc');
-        $sender_email = sanitize_email( get_bloginfo('admin_email') ); // Email send from blog admin.
+        $sender_email = sanitize_email(get_bloginfo('admin_email')); // Email send from blog admin.
 
         $message = "<p>Hello" . $bwpfm_fc_sender_name . ", <br />Your submitted product FAQ question has been updated on our website.</p>";
         $message .= '<hr><p><strong>Question:</strong> ' . $faq_title . '</p>';
