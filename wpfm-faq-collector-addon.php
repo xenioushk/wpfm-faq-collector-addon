@@ -3,9 +3,9 @@
 /*
   Plugin Name: FAQ Collector - WooCommerce Product Faq Manager Addon
   Plugin URI: https://bluewindlab.net
-  Description:Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
+  Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
   Author: Md Mahbub Alam Khan
-  Version: 1.1.3
+  Version: 1.1.4
   WP Requires at least: 6.0+
   Author URI: https://bluewindlab.net
   Text Domain: bwl-wpfmfc
@@ -20,10 +20,9 @@ class BWL_Wpfm_Fc_Addon
     function __construct()
     {
 
-        /* ------------------------------ PLUGIN COMMON CONSTANTS --------------------------------- */
-
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.4');
         define("BWL_WPFM_FCA_DIR", plugins_url() . '/wpfm-faq-collector-addon/');
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.3');
+        define("BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
 
         // Call Immediatly Initialized.      
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-check-compatibility.php';
@@ -33,7 +32,8 @@ class BWL_Wpfm_Fc_Addon
         if ($wpfm_fca_compatibily_status == 1) {
 
             $this->included_files();
-            $this->enqueue_plugin_scripts();
+            add_action('wp_enqueue_scripts', array($this, 'wpfmFcaFrontendScripts'));
+            add_action('admin_enqueue_scripts', array($this, 'wpfmFcaAdminScripts'));
         } else {
 
             $this->wpfm_fca_compatibily_notice();
@@ -58,7 +58,8 @@ class BWL_Wpfm_Fc_Addon
     {
 
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-helpers.php';
-        include_once dirname(__FILE__) . '/shortcode/wpfm-fca-shortcodes.php';
+        include_once dirname(__FILE__) . '/includes/shortcode/wpfm-fca-login-form.php';
+        include_once dirname(__FILE__) . '/includes/shortcode/wpfm-fca-ask-question-form.php';
 
         $wpfm_fca_display_tab = 1;
 
@@ -70,27 +71,40 @@ class BWL_Wpfm_Fc_Addon
         if (is_admin()) {
 
             include_once dirname(__FILE__) . '/includes/bwpfm-fca-custom-meta-box.php';
+
+            // Integrate Plugin Update Notifier.
+            require_once(__DIR__ . '/includes/autoupdater/WpAutoUpdater.php');
+            require_once(__DIR__ . '/includes/autoupdater/installer.php');
+            require_once(__DIR__ . '/includes/autoupdater/updater.php');
         }
     }
 
-    function enqueue_plugin_scripts()
+    function wpfmFcaFrontendScripts()
     {
 
-        if (!is_admin()) {
+        wp_enqueue_style('wpfm-fca-frontend', plugins_url('assets/styles/frontend.css', __FILE__), [], BWL_WPFM_FCA_PLUGIN_VERSION);
+        wp_register_script('wpfm-fac-frontend', plugins_url('assets/scripts/frontend.js', __FILE__), ['jquery'], BWL_WPFM_FCA_PLUGIN_VERSION, FALSE);
 
-            $bwpfm_data = get_option('bwpfm_options');
+        //@Load FAQ Collector Form Stylesheet.
+        // wp_enqueue_style('bwl-wpfm-fca-styles');
 
-            wp_enqueue_style('wpfm-fca-frontend', plugins_url('assets/styles/frontend.css', __FILE__), [], BWL_WPFM_FCA_PLUGIN_VERSION);
-            wp_register_script('wpfm-fac-frontend', plugins_url('assets/scripts/frontend.js', __FILE__), array('jquery'), BWL_WPFM_FCA_PLUGIN_VERSION, FALSE);
-
-            //@Load FAQ Collector Form Stylesheet.
-            // wp_enqueue_style('bwl-wpfm-fca-styles');
-
-            //@Load RTL Stylesheet.
-            if (is_rtl()) {
-                wp_enqueue_style('wpfm-fac-frontend-rtl', plugins_url('assets/styles/frontend_rtl.css', __FILE__));
-            }
+        //@Load RTL Stylesheet.
+        if (is_rtl()) {
+            wp_enqueue_style('wpfm-fac-frontend-rtl', plugins_url('assets/styles/frontend_rtl.css', __FILE__));
         }
+    }
+
+    function wpfmFcaAdminScripts()
+    {
+
+        wp_localize_script(
+            'jquery',
+            'WpfmFcaAdminData',
+            [
+                'product_id' => 9992576,
+                'installation' => get_option('wpfm_fca_installation')
+            ]
+        );
     }
 
     function bwpfm_add_custom_product_tab($tabs)

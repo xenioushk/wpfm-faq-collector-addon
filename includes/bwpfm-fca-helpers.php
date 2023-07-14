@@ -10,17 +10,16 @@ if ( ! function_exists('bwl_fca_set_ajax_url') ) {
     function bwl_fca_set_ajax_url() {
         
     ?>
-        <script type="text/javascript">
-             var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>',
-                err_bwl_fca_captcha = '<?php esc_html_e(' Incorrect Captcha Value!', 'bwl-wpfmfc'); ?>',
-                err_bwl_fca_question = '<?php esc_html_e(' Write your question. Min length 3 characters !', 'bwl-wpfmfc'); ?>',
-                err_bwl_fca_email = '<?php esc_html_e(' Valid Email address required!', 'bwl-wpfmfc'); ?>',
-                err_bwl_fca_success_msg = '<?php esc_html_e(' FAQ successfully added for review!', 'bwl-wpfmfc'); ?>',
-                err_bwl_fca_error_msg = '<?php esc_html_e(' Unable to add faq. Please try again!', 'bwl-wpfmfc'); ?>';
+<script type="text/javascript">
+var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>',
+  err_bwl_fca_captcha = '<?php esc_html_e(' Incorrect Captcha Value!', 'bwl-wpfmfc'); ?>',
+  err_bwl_fca_question = '<?php esc_html_e(' Write your question. Min length 3 characters !', 'bwl-wpfmfc'); ?>',
+  err_bwl_fca_email = '<?php esc_html_e(' Valid Email address required!', 'bwl-wpfmfc'); ?>',
+  err_bwl_fca_success_msg = '<?php esc_html_e(' FAQ successfully added for review!', 'bwl-wpfmfc'); ?>',
+  err_bwl_fca_error_msg = '<?php esc_html_e(' Unable to add faq. Please try again!', 'bwl-wpfmfc'); ?>';
+</script>
 
-        </script>
-
-    <?php
+<?php
 
     }
 
