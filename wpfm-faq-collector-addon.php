@@ -5,7 +5,7 @@
   Plugin URI: https://bluewindlab.net
   Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
   Author: Md Mahbub Alam Khan
-  Version: 1.1.4
+  Version: 1.1.5
   WP Requires at least: 6.0+
   Author URI: https://bluewindlab.net
   Text Domain: bwl-wpfmfc
@@ -20,9 +20,12 @@ class BWL_Wpfm_Fc_Addon
     function __construct()
     {
 
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.4');
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.5');
         define("BWL_WPFM_FCA_DIR", plugins_url() . '/wpfm-faq-collector-addon/');
         define("BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
+
+        define("BWL_WPFM_FCA_CC_ID", "9992576");
+        define('BWL_WPFM_FCA_INSTALLATION_TAG', 'wpfm_fca_installation_' . str_replace('.', '_', BWL_WPFM_FCA_PLUGIN_VERSION));
 
         // Call Immediatly Initialized.      
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-check-compatibility.php';
@@ -101,8 +104,8 @@ class BWL_Wpfm_Fc_Addon
             'jquery',
             'WpfmFcaAdminData',
             [
-                'product_id' => 9992576,
-                'installation' => get_option('wpfm_fca_installation')
+                'product_id' => BWL_WPFM_FCA_CC_ID,
+                'installation' => get_option(BWL_WPFM_FCA_INSTALLATION_TAG)
             ]
         );
     }
