@@ -18,46 +18,46 @@ function bwpfm_fc_custom_meta_init()
 
     $cmb_bwpfm_fca_fields = array(
         'meta_box_id' => 'cmb_bwpfm_fca', // Unique id of meta box.
-        'meta_box_heading' => esc_html__('BWL Woo Product FAQ Settings', 'bwl-wpfmfc'), // That text will be show in meta box head section.
+        'meta_box_heading' => esc_html__('BWL Woo Product FAQ Settings', "bwl-wpfmfc"), // That text will be show in meta box head section.
         'post_type' => 'bwl-woo-faq-manager', // define post type. go to register_post_type method to view post_type name.        
         'context' => 'normal',
         'priority' => 'high',
         'fields' => array(
             'bwpfm_fc_email_send_status' => array(
-                'title' => esc_html__('Send email to user ', 'bwl-wpfmfc'),
+                'title' => esc_html__('Send email to user ', "bwl-wpfmfc"),
                 'id' => 'bwpfm_fc_email_send_status',
                 'name' => 'bwpfm_fc_email_send_status',
                 'type' => 'select',
                 'value' => array(
-                    '1' => esc_html__('Yes', 'bwl-wpfmfc'),
-                    '0' => esc_html__('No', 'bwl-wpfmfc')
+                    '1' => esc_html__('Yes', "bwl-wpfmfc"),
+                    '0' => esc_html__('No', "bwl-wpfmfc")
                 ),
                 'default_value' => 0,
                 'class' => 'widefat',
-                'desc' => ' ' . esc_html__('This data will not store in to database. Select Yes to send a notification message to user about the question.', 'bwl-wpfmfc')
+                'desc' => ' ' . esc_html__('This data will not store in to database. Select Yes to send a notification message to user about the question.', "bwl-wpfmfc")
             ),
             'bwpfm_fc_sender_name' => array(
-                'title' => esc_html__('Sender Name ', 'bwl-wpfmfc'),
+                'title' => esc_html__('Sender Name ', "bwl-wpfmfc"),
                 'id' => 'bwpfm_fc_sender_name',
                 'name' => 'bwpfm_fc_sender_name',
                 'type' => 'text',
                 'value' => '',
                 'default_value' => '-',
                 'class' => 'medium',
-                'desc' => ' ' . esc_html__('You can add/edit sender name in here.', 'bwl-wpfmfc')
+                'desc' => ' ' . esc_html__('You can add/edit sender name in here.', "bwl-wpfmfc")
             ),
             'bwpfm_fc_user_email' => array(
-                'title' => esc_html__('Sender Email ', 'bwl-wpfmfc'),
+                'title' => esc_html__('Sender Email ', "bwl-wpfmfc"),
                 'id' => 'bwpfm_fc_user_email',
                 'name' => 'bwpfm_fc_user_email',
                 'type' => 'text',
                 'value' => '',
                 'default_value' => '',
                 'class' => 'medium',
-                'desc' => ' ' . esc_html__('You can add/edit sender email in here.', 'bwl-wpfmfc')
+                'desc' => ' ' . esc_html__('You can add/edit sender email in here.', "bwl-wpfmfc")
             ),
             'bwpfm_fc_date_time' => array(
-                'title' => esc_html__('Date & Time', 'bwl-wpfmfc'),
+                'title' => esc_html__('Date & Time', "bwl-wpfmfc"),
                 'id' => 'bwpfm_fc_date_time',
                 'name' => 'bwpfm_fc_date_time',
                 'type' => 'info',
@@ -79,19 +79,19 @@ function bwpfm_fc_custom_meta_init()
 
     $cmb_wpfm_fc_display_faq_fields = array(
         'meta_box_id' => 'cmb_wpfm_fc_display_faq', // Unique id of meta box.
-        'meta_box_heading' => esc_html__('Ask A Question Settings', 'bwl-wpfmfc'), // That text will be show in meta box head section.
+        'meta_box_heading' => esc_html__('Ask A Question Settings', "bwl-wpfmfc"), // That text will be show in meta box head section.
         'post_type' => 'product', // define post type. go to register_post_type method to view post_type name.        
         'context' => 'side',
         'priority' => 'low',
         'fields' => array(
             'wpfm_fc_display_faq' => array(
-                'title' => esc_html__('Hide Ask A Question Tab? ', 'bwl-wpfmfc'),
+                'title' => esc_html__('Hide Ask A Question Tab? ', "bwl-wpfmfc"),
                 'id' => 'wpfm_fc_display_faq',
                 'name' => 'wpfm_fc_display_faq',
                 'type' => 'select',
                 'value' => array(
-                    '1' => esc_html__('Yes', 'bwl-wpfmfc'),
-                    '0' => esc_html__('No', 'bwl-wpfmfc')
+                    '1' => esc_html__('Yes', "bwl-wpfmfc"),
+                    '0' => esc_html__('No', "bwl-wpfmfc")
                 ),
                 'default_value' => '',
                 'class' => 'widefat'
@@ -154,7 +154,7 @@ function bwpfm_fc_updated_send_email($post_id)
         $faq_title = get_the_title($post_id);
         $faq_content = stripslashes($_POST['content']);
 
-        $subject = esc_html__('Product FAQ has been updated!', 'bwl-wpfmfc');
+        $subject = esc_html__('Product FAQ has been updated!', "bwl-wpfmfc");
         $sender_email = sanitize_email(get_bloginfo('admin_email')); // Email send from blog admin.
 
         $message = "<p>Hello" . $bwpfm_fc_sender_name . ", <br />Your submitted product FAQ question has been updated on our website.</p>";

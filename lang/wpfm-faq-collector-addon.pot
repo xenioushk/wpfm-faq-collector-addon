@@ -1,0 +1,214 @@
+# Copyright (C) 2015 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FAQ Collector - WooCommerce Product Faq Manager Addon\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2023-10-04 21:51+0300\n"
+"PO-Revision-Date: 2018-01-31 21:24+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4\n"
+"X-Poedit-KeywordsList: _;__;_n;_x;_e;esc_attr__;esc_attr_e;esc_html__;"
+"esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: lang\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: .\n"
+
+#: includes/bwpfm-fca-custom-meta-box.php:21
+msgid "BWL Woo Product FAQ Settings"
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:27
+msgid "Send email to user "
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:32
+#: includes/bwpfm-fca-custom-meta-box.php:93
+msgid "Yes"
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:33
+#: includes/bwpfm-fca-custom-meta-box.php:94
+msgid "No"
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:37
+msgid ""
+"This data will not store in to database. Select Yes to send a notification "
+"message to user about the question."
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:40
+msgid "Sender Name "
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:47
+msgid "You can add/edit sender name in here."
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:50
+msgid "Sender Email "
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:57
+msgid "You can add/edit sender email in here."
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:60
+msgid "Date & Time"
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:82
+msgid "Ask A Question Settings"
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:88
+msgid "Hide Ask A Question Tab? "
+msgstr ""
+
+#: includes/bwpfm-fca-custom-meta-box.php:157
+msgid "Product FAQ has been updated!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:16
+#: includes/shortcode/wpfm-fca-ask-question-form.php:26
+msgid " Incorrect Captcha Value!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:17
+msgid " Write your question. Min length 3 characters !"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:18
+#: includes/shortcode/wpfm-fca-ask-question-form.php:28
+msgid " Valid Email address required!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:19
+#: includes/shortcode/wpfm-fca-ask-question-form.php:29
+msgid " FAQ successfully added for review!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:20
+#: includes/shortcode/wpfm-fca-ask-question-form.php:30
+msgid " Unable to add faq. Please try again!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:154
+msgid "New Product FAQ Question!"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:157
+msgid "Hello Administrator"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:157
+msgid "A new FAQ question has been submitted for following product."
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:158
+msgid "Product:"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:159
+msgid "Product URL"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:160
+msgid "Question Information"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:161
+msgid "Question Title"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:164
+msgid "Submitted By"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:166
+msgid "FAQ Status"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:166
+msgid "Pending"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:167
+msgid "Review"
+msgstr ""
+
+#: includes/bwpfm-fca-helpers.php:168
+msgid "Thank You!"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:12
+msgid "Write Your Question !"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:27
+#, php-format
+msgid ""
+" Write your question. Min length %d characters & Max length %d characters !"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:86
+msgid "Captcha:"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:86
+msgid "Verify Human or Spambot ?"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:106
+msgid "Question: "
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:109
+msgid "Your Name: "
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:112
+msgid "Your Email: "
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:112
+msgid "You will get a notification email when FAQ answered/updated!"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:118
+msgid "Submit Question"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:135
+msgid "Login required to submit question !"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-login-form.php:35
+msgid "Username"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-login-form.php:36
+msgid "Password"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-login-form.php:37
+msgid "Remember Me"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-login-form.php:38
+msgid "Log In"
+msgstr ""
+
+#: wpfm-faq-collector-addon.php:134
+msgid "Ask A Question"
+msgstr ""

@@ -1,18 +1,27 @@
 <?php
 
-/*
-  Plugin Name: FAQ Collector - WooCommerce Product Faq Manager Addon
-  Plugin URI: https://bluewindlab.net
-  Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
-  Author: Md Mahbub Alam Khan
-  Version: 1.1.5
-  WP Requires at least: 6.0+
-  Author URI: https://bluewindlab.net
-  Text Domain: bwl-wpfmfc
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
+/**
+ * Plugin Name: FAQ Collector - WooCommerce Product Faq Manager Addon
+ * Plugin URI: https://bluewindlab.net/portfolio/faq-tab-for-woocommerce-advanced-faq-addon/
+ * Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
+ * Author: Mahbub Alam Khan
+ * Version: 1.1.6
+ * WP Requires at least: 6.0+
+ * Author URI:     https://codecanyon.net/user/xenioushk
+ * Text Domain: bwl-wpfmfc
+ * Domain Path: /lang/
+ * 
+ * 
+ * @package FAQ Collector - WooCommerce Product Faq Manager Addon
+ * @author Mahbub Alam Khan
+ * @license GPL-2.0+
+ * @link https://codecanyon.net/user/xenioushk
+ * @copyright 2023 BlueWindLab
+ * 
  */
 
-if (!defined('ABSPATH'))
-    exit; // Exit if accessed directly
 
 class BWL_Wpfm_Fc_Addon
 {
@@ -20,7 +29,7 @@ class BWL_Wpfm_Fc_Addon
     function __construct()
     {
 
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.5');
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.6');
         define("BWL_WPFM_FCA_DIR", plugins_url() . '/wpfm-faq-collector-addon/');
         define("BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
 
@@ -34,9 +43,10 @@ class BWL_Wpfm_Fc_Addon
 
         if ($wpfm_fca_compatibily_status == 1) {
 
-            $this->included_files();
-            add_action('wp_enqueue_scripts', array($this, 'wpfmFcaFrontendScripts'));
-            add_action('admin_enqueue_scripts', array($this, 'wpfmFcaAdminScripts'));
+            $this->includeFiles();
+            add_action('wp_enqueue_scripts', array($this, 'enqueueFrontendScripts'));
+            add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
+            add_action('plugins_loaded', [$this, 'loadTranslationFile']);
         } else {
 
             $this->wpfm_fca_compatibily_notice();
@@ -45,10 +55,10 @@ class BWL_Wpfm_Fc_Addon
 
     function wpfm_fca_requirement_admin_notices()
     {
-        echo '<div class="updated"><p>You need to download & install both '
+        echo '<div class="notice notice-error"><p>You need to download & install both '
             . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b> && '
             . '<b><a href="https://1.envato.market/wpfm-wp" target="_blank">WooCommerce Product Faq Manager Plugin</a></b> '
-            . 'to use <b>FAQ Collector Addon</b> ! </p></div>';
+            . 'to use <b>FAQ Collector Addon</b>!</p></div>';
     }
 
     function wpfm_fca_compatibily_notice()
@@ -57,7 +67,7 @@ class BWL_Wpfm_Fc_Addon
         add_action('admin_notices', array($this, 'wpfm_fca_requirement_admin_notices'));
     }
 
-    function included_files()
+    function includeFiles()
     {
 
         include_once dirname(__FILE__) . '/includes/bwpfm-fca-helpers.php';
@@ -82,7 +92,7 @@ class BWL_Wpfm_Fc_Addon
         }
     }
 
-    function wpfmFcaFrontendScripts()
+    function enqueueFrontendScripts()
     {
 
         wp_enqueue_style('wpfm-fca-frontend', plugins_url('assets/styles/frontend.css', __FILE__), [], BWL_WPFM_FCA_PLUGIN_VERSION);
@@ -97,7 +107,7 @@ class BWL_Wpfm_Fc_Addon
         }
     }
 
-    function wpfmFcaAdminScripts()
+    function enqueueAdminScripts()
     {
 
         wp_localize_script(
@@ -121,7 +131,7 @@ class BWL_Wpfm_Fc_Addon
 
         $bwpfm_data = get_option('bwpfm_options');
 
-        $bwpfm_ask_tab_title = esc_html__("Ask A Question", 'bwl-wpfmfc');
+        $bwpfm_ask_tab_title = esc_html__("Ask A Question", "bwl-wpfmfc");
 
         if (isset($bwpfm_data['bwpfm_ask_tab_title']) && $bwpfm_data['bwpfm_ask_tab_title'] != "") {
 
@@ -167,6 +177,12 @@ class BWL_Wpfm_Fc_Addon
         $content = str_replace(']]>', ']]&gt;', $tab['content']);
         echo apply_filters('woocommerce_custom_fca_content', $content, $tab);
     }
+
+
+    public function loadTranslationFile()
+    {
+        load_plugin_textdomain("bwl-wpfmfc", FALSE, dirname(plugin_basename(__FILE__)) . "/lang/");
+    }
 }
 
 /* ------------------------------ Initialization --------------------------------- */
@@ -177,5 +193,3 @@ function init_wpfm_fc_addon()
 }
 
 add_action('init', 'init_wpfm_fc_addon');
-
-load_plugin_textdomain('bwl-wpfmfc', FALSE, dirname(plugin_basename(__FILE__)) . '/lang/');

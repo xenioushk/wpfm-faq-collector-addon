@@ -1,6 +1,6 @@
 {
   "name": "wpfm-faq-collector-addon",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "plugin-zip": "wp-scripts plugin-zip"
   },
-  "author": "Md Mahbub Alam Khan <hkhan.cse@gmail.com> (https://bluewindlab.net/)",
+  "author": "Mahbub Alam Khan <hkhan.cse@gmail.com> (https://bluewindlab.net/)",
   "license": "MIT",
   "dependencies": {
     "@wordpress/scripts": "24.6.0"
