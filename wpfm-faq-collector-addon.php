@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Plugin URI: https://bluewindlab.net/portfolio/faq-tab-for-woocommerce-advanced-faq-addon/
  * Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
  * Author: Mahbub Alam Khan
- * Version: 1.1.6
+ * Version: 1.1.7
  * WP Requires at least: 6.0+
  * Author URI:     https://codecanyon.net/user/xenioushk
  * Text Domain: bwl-wpfmfc
@@ -29,8 +29,8 @@ class BWL_Wpfm_Fc_Addon
     function __construct()
     {
 
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", '1.1.6');
-        define("BWL_WPFM_FCA_DIR", plugins_url() . '/wpfm-faq-collector-addon/');
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", "1.1.7");
+        define("BWL_WPFM_FCA_DIR", plugins_url() . "/wpfm-faq-collector-addon/");
         define("BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
 
         define("BWL_WPFM_FCA_CC_ID", "9992576");
@@ -56,7 +56,7 @@ class BWL_Wpfm_Fc_Addon
     function wpfm_fca_requirement_admin_notices()
     {
         echo '<div class="notice notice-error"><p>You need to download & install both '
-            . '<b><a href="http://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b> && '
+            . '<b><a href="https://downloads.wordpress.org/plugin/woocommerce.zip" target="_blank">WooCommerce Plugin</a></b> && '
             . '<b><a href="https://1.envato.market/wpfm-wp" target="_blank">WooCommerce Product Faq Manager Plugin</a></b> '
             . 'to use <b>FAQ Collector Addon</b>!</p></div>';
     }
