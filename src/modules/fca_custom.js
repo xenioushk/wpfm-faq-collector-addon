@@ -53,12 +53,22 @@
 
         if ($bwl_fca_sender_status.length == 1 && $bwl_fca_sender_status.val() == 1) {
           // If user logged in we will fill the data.
-
           $bwl_fca_sender_name.val($bwl_fca_sender_name_val)
           $bwl_fca_email.val($bwl_fca_email_val)
+          //
         }
 
-        $bwl_fca_title.focus()
+        // Check if the asking question tab exist.
+
+        if ($("#tab-title-bwpfm_fca_tab").length) {
+          let $bwpfm_fca_tab_title = $("#tab-title-bwpfm_fca_tab")
+
+          $bwpfm_fca_tab_title.find("a").on("click", function () {
+            setTimeout(() => {
+              $bwl_fca_title.focus()
+            }, 500)
+          })
+        }
       }
 
       // Initialize All Form Fields.
