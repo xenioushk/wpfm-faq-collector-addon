@@ -83,13 +83,17 @@ function bwl_fca_form($atts)
         if ($bwpfm_captcha_status == 1) :
 
             $bwl_fca_captcha_generator = '<p>
-                                                            <label for="captcha">' . esc_html__('Captcha:', "bwl-wpfmfc") . '</label><input id="num1" class="sum" type="text" name="num1" value="' . rand(1, 4) . '" readonly="readonly" />  + <input id="num2" class="sum" type="text" name="num2" value="' . rand(5, 9) . '" readonly="readonly" /> = <input id="captcha" class="captcha" type="text" name="captcha" maxlength="2" data-error_msg="' . $err_bwl_fca_captcha . '"/> <span id="spambot"> ' . esc_html__('Verify Human or Spambot ?', "bwl-wpfmfc") . '</span>
-                                                            <input id="captcha_status" type="hidden" name="captcha_status" value="' . $bwpfm_captcha_status . '" />
+                                                            <label for="captcha">' . esc_html__('Captcha:', "bwl-wpfmfc") . '</label>
+                                                            <input id="num1" class="sum" type="text" name="num1" value="' . rand(1, 4) . '" readonly="readonly">  + 
+                                                            <input id="num2" class="sum" type="text" name="num2" value="' . rand(5, 9) . '" readonly="readonly"> = 
+                                                            <input id="captcha" class="captcha" type="text" name="captcha" maxlength="2" data-error_msg="' . $err_bwl_fca_captcha . '">
+                                                            <span id="spambot"> ' . esc_html__('Verify Human or Spambot ?', "bwl-wpfmfc") . '</span>
+                                                            <input id="captcha_status" type="hidden" name="captcha_status" value="' . $bwpfm_captcha_status . '">
                                                         </p>';
 
         else :
 
-            $bwl_fca_captcha_generator = '<input id="captcha_status" type="hidden" name="captcha_status" value="' . $bwpfm_captcha_status . '" />';
+            $bwl_fca_captcha_generator = '<input id="captcha_status" type="hidden" name="captcha_status" value="' . $bwpfm_captcha_status . '">';
 
         endif;
 
@@ -97,34 +101,39 @@ function bwl_fca_form($atts)
         $bwl_fca_ques_form_container = (isset($fca_container_extra_class) && $fca_container_extra_class != "") ? $fca_container_extra_class . ' bwl-fca-ques-form-container' : 'bwl-fca-ques-form-container';
 
 
+        $frontendNonce =  wp_nonce_field("bptm-frontend-fca-nonce", "_wpnonce_frontend_fca");
+
         $bwl_fca_ques_form_body = '<section class="' . $bwl_fca_ques_form_container . '" id="' . $bwl_fca_form_id . '">
                                         <h2>' . $fca_form_heading . ' </h2>
                                         <form id="bwl_fca_ques_form" class="bwl_fca_ques_form" name="bwl_fca_ques_form" method="post" action="#"> 
                                                 
                                                 <div class="bwl-fca-message-box"></div>
                                                 <p>        
-                                                    <label for="title">' . esc_html__('Question: ', "bwl-wpfmfc") . '</label><input type="text" id="title" value="" name="title" data-error_msg="' . $err_bwl_fca_question . '" data-min_length="' . $title_min_length . '" data-max_length="' . $title_max_length . '"/> 
+                                                    <label for="title">' . esc_html__('Question: ', "bwl-wpfmfc") . '</label>
+                                                    <input type="text" id="title" value="" name="title" data-error_msg="' . $err_bwl_fca_question . '" data-min_length="' . $title_min_length . '" data-max_length="' . $title_max_length . '"> 
                                                 </p>
                                                 <p>        
-                                                    <label for="sender_name">' . esc_html__('Your Name: ', "bwl-wpfmfc") . '</label><input type="text" id="sender_name" value="' . esc_attr($sender_name) . '" name="sender_name"/> 
+                                                    <label for="sender_name">' . esc_html__('Your Name: ', "bwl-wpfmfc") . '</label>
+                                                    <input type="text" id="sender_name" value="' . esc_attr($sender_name) . '" name="sender_name"> 
                                                 </p>
                                                 <p>        
-                                                    <label for="email">' . esc_html__('Your Email: ', "bwl-wpfmfc") . '</label><input type="text" id="email" value="' . esc_attr($sender_email) . '" name="email" data-error_msg="' . $err_bwl_fca_email . '"/>  <small>' . esc_html__('You will get a notification email when FAQ answered/updated!', "bwl-wpfmfc") . '</small>
+                                                    <label for="email">' . esc_html__('Your Email: ', "bwl-wpfmfc") . '</label>
+                                                    <input type="text" id="email" value="' . esc_attr($sender_email) . '" name="email" data-error_msg="' . $err_bwl_fca_email . '">  <small>' . esc_html__('You will get a notification email when FAQ answered/updated!', "bwl-wpfmfc") . '</small>
                                                 </p>
                                                 
                                                 ' . $bwl_fca_captcha_generator . '
 
                                                 <p class="bwl_fca_question_submit_container">
-                                                    <input type="submit" value="' . esc_html__('Submit Question', "bwl-wpfmfc") . '" id="submit" name="submit" bwl_fca_ques_form_id= "' . $bwl_fca_form_id . '" data-success_msg="' . $err_bwl_fca_success_msg . '" data-error_msg="' . $err_bwl_fca_error_msg . '" />
+                                                    <input type="submit" value="' . esc_html__('Submit Question', "bwl-wpfmfc") . '" id="submit" name="submit" bwl_fca_ques_form_id= "' . $bwl_fca_form_id . '" data-success_msg="' . $err_bwl_fca_success_msg . '" data-error_msg="' . $err_bwl_fca_error_msg . '">
                                                 </p>
 
-                                                <input type="hidden" name="sender_status" id="sender_status" value="' . esc_attr($sender_status) . '" />
-                                                <input type="hidden" name="post_type" id="post_type" value="bwl-woo-faq-manager" />
-                                                <input type="hidden" name="product_id" id="product_id" value="' . esc_attr($product_id) . '" />
+                                                <input type="hidden" name="sender_status" id="sender_status" value="' . esc_attr($sender_status) . '">
+                                                <input type="hidden" name="post_type" id="post_type" value="bwl-woo-faq-manager">
+                                                <input type="hidden" name="product_id" id="product_id" value="' . esc_attr($product_id) . '">
 
-                                                <input type="hidden" name="action" value="bwl_fca_ques" />'
+                                                <input type="hidden" name="action" value="bwl_fca_ques">'
 
-            . wp_nonce_field('wpfm_fca_nonce_action', 'wpfm_fca_nonce_field') .
+            . $frontendNonce .
 
             '</form>
 
