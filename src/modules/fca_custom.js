@@ -19,7 +19,7 @@
       }
     }
 
-    /*------------------------------FAQ ASK FORM---------------------------------*/
+    // FAQ ASK FORM
 
     if ($(".bwl_fca_ques_form").length) {
       var $bwl_fca_ques_form = $(".bwl_fca_ques_form")
@@ -139,10 +139,10 @@
           $bwl_fca_ques_form_fields.attr("style", ok_border)
           $bwl_fca_ques_form_fields.addClass("bwl_fca_ques_disabled_field").attr("disabled", "disabled")
           $fca_submit_btn.addClass("bwl_fca_ques_disabled_field").attr("disabled", "disabled")
-          $bwl_fca_msg_box.html("").removeClass("bwl-fca-ques-form-error-box").addClass("bwl-fca-ques-form-wait-box").html("Please Wait .....").slideDown("slow")
+          $bwl_fca_msg_box.html("").removeClass("bwl-fca-ques-form-error-box").addClass("bwl-fca-ques-form-wait-box").html(WpfmFcaFrontendData.wpfm_wait_text).slideDown("slow")
 
           $.ajax({
-            url: ajaxurl,
+            url: WpfmFcaFrontendData.ajaxurl,
             type: "POST",
             dataType: "JSON",
             data: {
@@ -152,7 +152,7 @@
               email: $bwl_fca_email.val(),
               post_type: $bwl_fca_post_type.val(),
               product_id: $bwl_fca_product_id.val(),
-              wpfm_fca_nonce_field: $bwl_fca_ques_form.find("#wpfm_fca_nonce_field").val(),
+              _wpnonce_frontend_fca: $bwl_fca_ques_form.find("#_wpnonce_frontend_fca").val(),
             },
             success: function (data) {
               if (data.bwl_fca_add_status == 1) {

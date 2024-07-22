@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FAQ Collector - WooCommerce Product Faq Manager Addon\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2023-10-04 21:51+0300\n"
+"POT-Creation-Date: 2024-07-22 16:36+0300\n"
 "PO-Revision-Date: 2018-01-31 21:24+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-KeywordsList: _;__;_n;_x;_e;esc_attr__;esc_attr_e;esc_html__;"
 "esc_html_e\n"
 "X-Poedit-Basepath: ..\n"
@@ -79,80 +79,60 @@ msgstr ""
 msgid "Product FAQ has been updated!"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:16
-#: includes/shortcode/wpfm-fca-ask-question-form.php:26
-msgid " Incorrect Captcha Value!"
-msgstr ""
-
-#: includes/bwpfm-fca-helpers.php:17
-msgid " Write your question. Min length 3 characters !"
-msgstr ""
-
-#: includes/bwpfm-fca-helpers.php:18
-#: includes/shortcode/wpfm-fca-ask-question-form.php:28
-msgid " Valid Email address required!"
-msgstr ""
-
-#: includes/bwpfm-fca-helpers.php:19
-#: includes/shortcode/wpfm-fca-ask-question-form.php:29
-msgid " FAQ successfully added for review!"
-msgstr ""
-
-#: includes/bwpfm-fca-helpers.php:20
-#: includes/shortcode/wpfm-fca-ask-question-form.php:30
-msgid " Unable to add faq. Please try again!"
-msgstr ""
-
-#: includes/bwpfm-fca-helpers.php:154
+#: includes/bwpfm-fca-helpers.php:127
 msgid "New Product FAQ Question!"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:157
+#: includes/bwpfm-fca-helpers.php:130
 msgid "Hello Administrator"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:157
+#: includes/bwpfm-fca-helpers.php:130
 msgid "A new FAQ question has been submitted for following product."
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:158
+#: includes/bwpfm-fca-helpers.php:131
 msgid "Product:"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:159
+#: includes/bwpfm-fca-helpers.php:132
 msgid "Product URL"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:160
+#: includes/bwpfm-fca-helpers.php:133
 msgid "Question Information"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:161
+#: includes/bwpfm-fca-helpers.php:134
 msgid "Question Title"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:164
+#: includes/bwpfm-fca-helpers.php:137
 msgid "Submitted By"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:166
+#: includes/bwpfm-fca-helpers.php:139
 msgid "FAQ Status"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:166
+#: includes/bwpfm-fca-helpers.php:139
 msgid "Pending"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:167
+#: includes/bwpfm-fca-helpers.php:140
 msgid "Review"
 msgstr ""
 
-#: includes/bwpfm-fca-helpers.php:168
+#: includes/bwpfm-fca-helpers.php:141
 msgid "Thank You!"
 msgstr ""
 
 #: includes/shortcode/wpfm-fca-ask-question-form.php:12
 msgid "Write Your Question !"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:26
+msgid " Incorrect Captcha Value!"
 msgstr ""
 
 #: includes/shortcode/wpfm-fca-ask-question-form.php:27
@@ -161,35 +141,47 @@ msgid ""
 " Write your question. Min length %d characters & Max length %d characters !"
 msgstr ""
 
+#: includes/shortcode/wpfm-fca-ask-question-form.php:28
+msgid " Valid Email address required!"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:29
+msgid " FAQ successfully added for review!"
+msgstr ""
+
+#: includes/shortcode/wpfm-fca-ask-question-form.php:30
+msgid " Unable to add faq. Please try again!"
+msgstr ""
+
 #: includes/shortcode/wpfm-fca-ask-question-form.php:86
 msgid "Captcha:"
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:86
+#: includes/shortcode/wpfm-fca-ask-question-form.php:90
 msgid "Verify Human or Spambot ?"
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:106
+#: includes/shortcode/wpfm-fca-ask-question-form.php:112
 msgid "Question: "
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:109
+#: includes/shortcode/wpfm-fca-ask-question-form.php:116
 msgid "Your Name: "
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:112
+#: includes/shortcode/wpfm-fca-ask-question-form.php:120
 msgid "Your Email: "
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:112
+#: includes/shortcode/wpfm-fca-ask-question-form.php:121
 msgid "You will get a notification email when FAQ answered/updated!"
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:118
+#: includes/shortcode/wpfm-fca-ask-question-form.php:127
 msgid "Submit Question"
 msgstr ""
 
-#: includes/shortcode/wpfm-fca-ask-question-form.php:135
+#: includes/shortcode/wpfm-fca-ask-question-form.php:144
 msgid "Login required to submit question !"
 msgstr ""
 
@@ -209,6 +201,10 @@ msgstr ""
 msgid "Log In"
 msgstr ""
 
-#: wpfm-faq-collector-addon.php:134
+#: wpfm-faq-collector-addon.php:136
+msgid "Please Wait ....."
+msgstr ""
+
+#: wpfm-faq-collector-addon.php:173
 msgid "Ask A Question"
 msgstr ""
