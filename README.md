@@ -59,9 +59,9 @@ You need at least WordPress version 4.8+ installed for this plugin to work prope
 
 ![Options panel](https://xenioushk.github.io/docs-plugins-addon/wpfm-addon/img/options/1.jpg)
 
-**Ask Question Tab Title:** This option allows you to set any title for the question submission tab. Default value: "Ask A Question.".
+**Ask Question Tab Title:** This option allows you to set any title for the question submission tab. Default value: `Ask A Question`.
 
-**Ask Tab Position:** By default, "Question Tab" will display at the last position of the tab. However, you can alter the order by entering a different value in the "Ask Tab Position" input box. For example, if you want to set the first position of the tab, then set value to 1
+**Ask Tab Position:** By default, `Question Tab` will display at the last position of the tab. However, you can alter the order by entering a different value in the "Ask Tab Position" input box. For example, if you want to set the first position of the tab, then set value to 1
 
 **Disable Captcha:** To protect users from external spam, the plugin included a random math captcha. However, if you wish, you can disable it from here.
 
