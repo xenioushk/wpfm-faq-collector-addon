@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Plugin URI: https://bluewindlab.net/portfolio/faq-tab-for-woocommerce-advanced-faq-addon/
  * Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
  * Author: Mahbub Alam Khan
- * Version: 1.1.8
+ * Version: 1.1.9
  * WP Requires at least: 6.0+
  * Author URI:     https://codecanyon.net/user/xenioushk
  * Text Domain: bwl-wpfmfc
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * @author Mahbub Alam Khan
  * @license GPL-2.0+
  * @link https://codecanyon.net/user/xenioushk
- * @copyright 2023 BlueWindLab
+ * @copyright 2024 BlueWindLab
  * 
  */
 
@@ -31,7 +31,7 @@ class BWL_Wpfm_Fc_Addon
 
         define("BWL_WPFM_FCA_TITLE", "FAQ Collector - WooCommerce Product Faq Manager Addon");
         define("BWL_WPFM_ADDON_PARENT_PLUGIN_TITLE", "WooCommerce Product Faq Manager");
-        define("BWL_WPFM_FCA_PLUGIN_VERSION", "1.1.8");
+        define("BWL_WPFM_FCA_PLUGIN_VERSION", "1.1.9");
         define("BWL_WPFM_FCA_DIR", plugins_url() . "/wpfm-faq-collector-addon/");
         define("BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
 
