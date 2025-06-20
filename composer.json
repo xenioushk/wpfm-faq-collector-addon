@@ -1,6 +1,6 @@
 {
   "name": "xenioushk/wpfm-faq-collector-addon",
-  "description": "A Advanced FAQ Manager WordPress Plugin by Mahbub.",
+  "description": "WooCommerce Product Faq Manager Addon by Mahbub.",
   "type": "project",
   "autoload": {
     "psr-4": {
