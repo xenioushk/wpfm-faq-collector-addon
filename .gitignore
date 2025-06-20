@@ -5,3 +5,6 @@ assets
 *.hot-update.js
 *.hot-update.json
 .DS_Store
+.vscode
+vendor
+.git/
