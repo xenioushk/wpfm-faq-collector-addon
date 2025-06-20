@@ -1,62 +1,63 @@
 variables:
-  BUILD_DIR: /home/gitlab-runner/builds/$CI_RUNNER_SHORT_TOKEN/0/wpfm-addon/wpfm-faq-collector-addon
-  DEPLOY_DIR: wpfm/wp-content/plugins/wpfm-faq-collector-addon
+  BUILD_DIR: /home/gitlab-runner/builds/$CI_RUNNER_SHORT_TOKEN/0/plugin-addons/wpfm-faq-collector-addon # Adjusted
+  PLUGIN_DIR: wpfm/wp-content/plugins/wpfm-faq-collector-addon/ # Adjusted
+  SDEPLOY_DIR: /home/$SHOST_ID/public_html/bwl_staging/wpplugins/$PLUGIN_DIR # Adjusted
+  PDEPLOY_DIR: /home/$PHOST_ID/public_html/public_html/projects/wpplugin/$PLUGIN_DIR # Adjusted
+
 stages:
   - build
   - staging
   - production
+  - cleanup
 
 before_script:
-  - sudo apt-get install -y lftp && sudo apt-get install -y npm && sudo apt-get install -y curl
+  - echo "👨🏻‍💻 Getting ready!!"
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=$HOME/bin --filename=composer
+  - export PATH="$HOME/bin:$PATH"
+  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  - export NVM_DIR="$HOME/.nvm"
+  - source "$NVM_DIR/nvm.sh"
 
 build:
   stage: build
   image: node:lts
-  tags:
-    - ci
-    - devops
-  only:
-    - staging
-    - production
+  tags: [ci, devops]
+  only: [staging, production]
   script:
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-    - export NVM_DIR="$HOME/.nvm"
-    - source "$NVM_DIR/nvm.sh"
-    - nvm install 16.20.0
-    - npm -v #NPM Version.
-    - node -v #"Node Version."
-    - echo "Installing Packages."
+    - echo "⚙️ Building the app."
+    - composer install --no-dev --optimize-autoloader
+    - nvm use
     - npm install
-    - echo "Building artifacts and assets."
     - npm run build
   artifacts:
     paths:
-      - $BUILD_DIR/assets # Replace with the actual path to your build directory
+      - $BUILD_DIR/assets
+      - $BUILD_DIR/vendor
 
 staging:
   stage: staging
   dependencies:
     - build
-  only:
-    - staging
-  tags:
-    - ci
-    - devops
+  only: [staging]
+  tags: [ci, devops]
   script:
-    - pwd
-    - echo "Updating plugin files.."
-    - lftp -e "set ssl:verify-certificate no; open $FTP_SHOST; user $FTP_SUSERNAME $FTP_SPASSWORD; mirror -X .* -X .*/ --reverse --verbose $BUILD_DIR /wpplugins/$DEPLOY_DIR; bye"
+    - echo "🚀 Deploying to STAGING."
+    - rsync -avz --delete --exclude-from='.rsync-exclude' -e "ssh -p ${SSH_PORT:-65002}" $BUILD_DIR/ $SSH_SUSERNAME@$SSH_SHOST:$SDEPLOY_DIR
 
 production:
   stage: production
   dependencies:
     - build
-  only:
-    - production
-  tags:
-    - ci
-    - devops
+  only: [production]
+  tags: [ci, devops]
   script:
-    - pwd
-    - echo "Updating plugin files.."
-    - lftp -e "set ssl:verify-certificate no; open $FTP_HOST; user $FTP_PUSERNAME $FTP_PPASSWORD; mirror -X .* -X .*/ --reverse --verbose $BUILD_DIR /wpplugin/$DEPLOY_DIR; bye"
+    - echo "🚀 Deploying to PRODUCTION."
+    - rsync -avz --delete --exclude-from='.rsync-exclude' -e "ssh -p ${SSH_PORT:-65002}" $BUILD_DIR/ $SSH_PUSERNAME@$SSH_PHOST:$PDEPLOY_DIR
+
+cleanup:
+  stage: cleanup
+  only: [staging, production]
+  tags: [ci, devops]
+  script:
+    - echo "🧹Cleaning up."
+    - rm -rf $BUILD_DIR
