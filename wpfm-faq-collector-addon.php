@@ -1,12 +1,11 @@
 <?php
-
 if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly
 }
 
 /**
  * Plugin Name: FAQ Collector - WooCommerce Product Faq Manager Addon
  * Plugin URI: https://bluewindlab.net/portfolio/faq-tab-for-woocommerce-advanced-faq-addon/
- * Description: Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page and make a great list of FAQs for your current and upcoming users.
+ * Description: FAQ collector addon provides a way to get user questions directly from the product page.
  * Author: Mahbub Alam Khan
  * Version: 2.0.0
  * WP Requires at least: 6.0+
@@ -14,30 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly
  * Text Domain: bwl-wpfmfc
  * Domain Path: /lang/
  *
- * @package   FAQ Collector - WooCommerce Product Faq Manager Addon
+ * @package   FCWPFM
  * @author    Mahbub Alam Khan
  * @license   GPL-2.0+
  * @link      https://codecanyon.net/user/xenioushk
  * @copyright 2024 BlueWindLab
  */
-
-
 class BWL_Wpfm_Fc_Addon {
 
 
+    /**
+     * BWL_Wpfm_Fc_Addon constructor.
+     *
+     * @since 1.0
+     */
     public function __construct() {
 
         define( 'BWL_WPFM_FCA_TITLE', 'FAQ Collector - WooCommerce Product Faq Manager Addon' );
         define( 'BWL_WPFM_ADDON_PARENT_PLUGIN_TITLE', 'WooCommerce Product Faq Manager' );
-        define( 'BWL_WPFM_FCA_PLUGIN_VERSION', '1.1.9' );
+        define( 'BWL_WPFM_FCA_PLUGIN_VERSION', '2.0.0' );
         define( 'BWL_WPFM_FCA_DIR', plugins_url() . '/wpfm-faq-collector-addon/' );
         define( 'BWL_WPFM_FCA_PLUGIN_UPDATER_SLUG', plugin_basename( __FILE__ ) ); // change plugin current version in here.
 
         define( 'BWL_WPFM_FCA_CC_ID', '9992576' );
         define( 'BWL_WPFM_FCA_INSTALLATION_TAG', 'wpfm_fca_installation_' . str_replace( '.', '_', BWL_WPFM_FCA_PLUGIN_VERSION ) );
-
-        // Check parent plugin purchase status.
-        define( 'BWL_WPFM_PARENT_PLUGIN_PURCHASE_STATUS', get_option( 'wpfm_purchase_verified' ) == 1 ? 1 : 0 );
 
         // Call Immediatly Initialized.
         include_once __DIR__ . '/includes/bwpfm-fca-check-compatibility.php';
