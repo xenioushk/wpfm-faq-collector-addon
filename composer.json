@@ -8,8 +8,7 @@
     }
   },
   "require": {
-    "xenioushk/bwl-plugin-api": "^1.0",
-    "woocommerce/action-scheduler": "^3.0"
+    "xenioushk/bwl-plugin-api": "^1.0"
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "^3.1",
