@@ -49,11 +49,6 @@ class BWL_Wpfm_Fc_Addon {
             return false;
         }
 
-        if ( $CompatibilyStatus == 2 && is_admin() ) {
-            $this->displayWpfmFcaPurchaseNotice();
-            return false;
-        }
-
         if ( $CompatibilyStatus == 1 ) {
 
             $this->includeFiles();
@@ -78,18 +73,6 @@ class BWL_Wpfm_Fc_Addon {
     public function displayWpfmFcaCompatibilyNotice() {
 
         add_action( 'admin_notices', [ $this, 'getAddonDependencyNotice' ] );
-    }
-
-    public function getPurchaseVerificationNotice() {
-        $licensePage = admin_url( 'edit.php?post_type=bwl-woo-faq-manager&page=wpfm-license' );
-
-        echo '<div class="error"><p>You need to <a href="' . $licensePage . '">Activate</a> '
-            . '<b>' . BWL_WPFM_ADDON_PARENT_PLUGIN_TITLE . '</b> '
-            . 'to use <b>' . BWL_WPFM_FCA_TITLE . '</b>.</p></div>';
-    }
-
-    public function displayWpfmFcaPurchaseNotice() {
-        add_action( 'admin_notices', [ $this, 'getPurchaseVerificationNotice' ] );
     }
 
     public function includeFiles() {
