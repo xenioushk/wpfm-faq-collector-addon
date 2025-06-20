@@ -1,6 +1,6 @@
 {
   "name": "wpfm-faq-collector-addon",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "Finding an excellent way to collect questions from the user end for your WooCommerce-powered site? FAQ collector addon provides a way to get user questions directly from the product page.",
   "main": "index.js",
   "scripts": {
